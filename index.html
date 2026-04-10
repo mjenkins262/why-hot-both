@@ -2,39 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Not Both?</title>
-  <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 24px;
+      overflow: hidden; /* removes page scroll */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+    }
+
+    .container {
       text-align: center;
     }
-    .viz-wrap {
-      max-width: 1500px;
-      margin: 0 auto;
+
+    iframe {
+      border: none;
+      transform: scale(0.85); /* 🔥 shrink */
+      transform-origin: top center;
+      width: 1100px;
+      height: 900px;
     }
-    tableau-viz {
-      width: 100%;
-      height: 950px;
+
+    .nav {
+      margin-top: 10px;
     }
   </style>
 </head>
+
 <body>
-  <div class="viz-wrap">
+  <div class="container">
     <h1>Why Not Both?</h1>
     <p>How often are players elite at both hitting and fielding?</p>
 
-    <tableau-viz
-      id="tableauViz"
-      src="https://public.tableau.com/views/GGSS/Dashboard1?:showVizHome=no"
-      toolbar="bottom"
-      hide-tabs>
-    </tableau-viz>
+    <iframe src="https://public.tableau.com/views/GGSS/Dashboard1?:showVizHome=no"></iframe>
 
-    <p><a href="page2.html">Go to Page 2</a></p>
+    <div class="nav">
+      <a href="page2.html">Explore a Player →</a>
+    </div>
   </div>
 </body>
 </html>
