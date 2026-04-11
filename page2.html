@@ -1,24 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Page 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Not Both?</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #3d3936;
+      color: #f4efe8;
+      overflow: hidden;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 6px;
+      width: 100vw;
+      height: 100vh;
+      padding: 10px 8px 10px 10px;
+      box-sizing: border-box;
+      align-items: start;
+    }
+
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 18px;
+      padding-top: 18px;
+      padding-left: 4px;
+      min-width: 0;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin: 0 0 8px 0;
+    }
+
+    .section p {
+      font-size: 15px;
+      line-height: 1.45;
+      color: #ddd4c8;
+      margin: 0 0 12px 0;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 8px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #f4efe8;
+      background-color: #433b36;
+      border: 1px solid #8f7750;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background-color: #5a4d45;
+      border-color: #caa85a;
+    }
+
+    .nav a.active {
+      background-color: #8f7750;
+      color: #1f1a17;
+    }
+
+    .viz-wrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .viz-inner {
+      transform: scale(0.88);
+      transform-origin: top left;
+      width: 1500px;
+      height: 950px;
+      margin-left: 50px; 
+    }
+
+    iframe {
+      border: none;
+      width: 1520px;
+      height: 980px;
+      display: block;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align: center;">
 
-<h1>Explore a Player</h1>
+<body>
+  <div class="page">
 
-<p>Select a player and adjust "Through Season"</p>
+    <aside class="side-panel">
+<div class="section">
+  <div class="section">
+  <h2>10-Year Peak</h2>
 
-<iframe 
-  src="https://public.tableau.com/views/GGSS/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-  width="1100" 
-  height="850"
-  frameborder="0">
-</iframe>
+  <p>
+    By season 10, many players are near their peak in combined offensive and defensive success. This view shows who had built the strongest two-way profile at that point, rather than over a full career.
+  </p>
 
-<br><br>
+  <p>
+    This slice is useful because it reduces the advantage of very long careers and brings more attention to players who reached a high level early.
+  </p>
 
-<a href="index.html">← Back to Page 1</a>
+  <p>
+    The leaderboard highlights the top ratings at that stage, while the quadrant chart shows who was closest to elite performance in both awards at once.
+  </p>
 
+</div>
+</div>
+      <div class="nav">
+        <a href="index.html">Overview</a>
+        <a class="active" href="page2.html">10-Year Peak</a>
+        <a href="page3.html">Placeholder 2</a>
+        <a href="page4.html">Placeholder 3</a>
+      </div>
+    </aside>
+
+    <main class="viz-wrap">
+      <div class="viz-inner">
+        <iframe src="https://public.tableau.com/views/GGSS/Dashboard1?:showVizHome=no&:embed=true"></iframe>
+      </div>
+    </main>
+
+  </div>
 </body>
 </html>
