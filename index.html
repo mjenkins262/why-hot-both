@@ -14,7 +14,7 @@
       overflow: hidden;
     }
 
-     .page {
+    .page {
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 6px;
@@ -39,6 +39,18 @@
       flex: 0 0 auto;
     }
 
+    .section h2 {
+      font-size: 22px;
+      margin: 0 0 8px 0;
+    }
+
+    .section p {
+      font-size: 15px;
+      line-height: 1.45;
+      color: #ddd4c8;
+      margin: 0 0 12px 0;
+    }
+
     .nav {
       display: flex;
       flex-direction: column;
@@ -46,8 +58,9 @@
       margin-top: auto;
       padding-bottom: 70px;
     }
-    
-    .nav a {
+
+    .nav a,
+    .reset-btn {
       text-decoration: none;
       color: #f4efe8;
       background-color: #433b36;
@@ -57,9 +70,15 @@
       font-weight: bold;
       text-align: center;
       transition: all 0.2s ease;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 100%;
     }
 
-    .nav a:hover {
+    .nav a:hover,
+    .reset-btn:hover {
       background-color: #5a4d45;
       border-color: #caa85a;
     }
@@ -67,6 +86,11 @@
     .nav a.active {
       background-color: #8f7750;
       color: #1f1a17;
+    }
+
+    .reset-btn {
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .viz-wrap {
@@ -82,7 +106,7 @@
       transform-origin: top left;
       width: 1500px;
       height: 950px;
-      margin-left: 50px; 
+      margin-left: 50px;
     }
 
     iframe {
@@ -98,46 +122,59 @@
   <div class="page">
 
     <aside class="side-panel">
-<div class="section">
-  <div class="section">
-  <h2>Overview</h2>
+      <div class="section">
+        <h2>10-Year Peak</h2>
 
-  <p>
-    This project looks at offensive and defensive success together using Gold Gloves and Silver Sluggers relative to career length.
-  </p>
+        <p>
+          This project compares offensive and defensive success using Gold Gloves and Silver Sluggers, measured relative to career length rather than total awards.
+        </p>
 
-  <p>
-    Instead of total awards, it focuses on how often players earned them over time. The filters help surface both meaningful trends and edge cases like one-season 100% players.
-  </p>
+        <p>
+          Instead of counting totals, it looks at how often players earned each award over time. The filters help surface both meaningful trends and edge cases, such as one-season 100% players.
+        </p>
 
-  <p>
-    The quadrant chart groups players by their combination of offense and defense. Over a full career, no player sits in the top-right zone, though some reach it briefly or with a single team.
-  </p>
+        <p>
+          The quadrant chart groups players by their combination of offense and defense. Over a full career, no player remains in the top-right zone, though some reach it briefly or within specific team stints.
+        </p>
 
-  <p>
-    The line chart shows how those rates change over time. Across the population, performance tends to peak around year 10.
-  </p>
+        <p>
+          The line chart shows how those rates change across a career. Across the population, performance tends to peak around year 10.
+        </p>
 
-  <p>
-    The leaderboard includes a Rating from 0 to 100 that weights both awards equally, creating a single measure of two-way success.
-  </p>
+        <p>
+          The leaderboard includes a Rating from 0 to 100 that weights both awards equally, creating a single measure of two-way success.
+        </p>
 
-</div>
-</div>
+        <p>
+          Seasons are counted if a player appeared at all, so partial seasons are included.
+        </p>
+      </div>
+
       <div class="nav">
-        <a class="active" href="index.html">Overview</a>
-        <a href="page2.html">10-Year Peak</a>
+        <a href="index.html">Overview</a>
+        <a class="active" href="page2.html">10-Year Peak</a>
         <a href="page3.html">Placeholder 2</a>
         <a href="page4.html">Placeholder 3</a>
+        <button class="reset-btn" onclick="resetViz()">Reset View</button>
       </div>
     </aside>
 
     <main class="viz-wrap">
       <div class="viz-inner">
-        <iframe src="https://public.tableau.com/views/GGSS/Dashboard1?:showVizHome=no&:embed=true"></iframe>
+        <iframe
+          id="tableau-frame"
+          src="https://public.tableau.com/views/WhyNot10/Dashboard1?:showVizHome=no&:embed=true">
+        </iframe>
       </div>
     </main>
 
   </div>
+
+  <script>
+    function resetViz() {
+      const iframe = document.getElementById("tableau-frame");
+      iframe.src = iframe.src;
+    }
+  </script>
 </body>
 </html>
