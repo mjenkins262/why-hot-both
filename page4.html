@@ -114,7 +114,6 @@
       width: 1520px;
       height: 980px;
       display: block;
-      background: #000;
     }
   </style>
 </head>
@@ -124,14 +123,18 @@
 
     <aside class="side-panel">
       <div class="section">
-        <h2>Career Animation</h2>
+        <h2>Career Paths</h2>
 
         <p>
-          This shows how players move through the chart over time. Some rise fast, some fade, and very few stay near the top.
+          This view looks at Yankees careers only. It is the only team with at least one player in each quadrant.
         </p>
 
         <p>
-          Even players who finish in similar spots often take very different paths to get there.
+          That alone makes it a fun team slice. The names are familiar, but the spots are not always what you might expect.
+        </p>
+
+        <p>
+          Are you surprised to see Robinson Cano in the Silver Slugger box? Or Mattingly leaning more fielder than hitter? Boggs lands fairly balanced, even though his Yankees years came fairly late. And would you have guessed Dave Winfield would end up on top? Probably wouldn't have been Steinbrenner's first guess.
         </p>
       </div>
 
@@ -139,19 +142,16 @@
         <a class="active" href="index.html">Overview</a>
         <a href="page2.html">10-Year Peak</a>
         <a href="page3.html">Yankees</a>
-        <a href="page4.html">Griffey & Pudge</a>
-        <button class="reset-btn" onclick="resetVideo()">Reset View</button>
+        <a href="page4.html">Career Paths</a>
+        <button class="reset-btn" onclick="resetViz()">Reset View</button>
       </div>
     </aside>
 
     <main class="viz-wrap">
       <div class="viz-inner">
         <iframe
-          id="video-frame"
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
+          id="tableau-frame"
+          src="https://public.tableau.com/views/WhyNotAnimate/Dashboard1?:showVizHome=no&:embed=true">
         </iframe>
       </div>
     </main>
@@ -159,8 +159,8 @@
   </div>
 
   <script>
-    function resetVideo() {
-      const iframe = document.getElementById("video-frame");
+    function resetViz() {
+      const iframe = document.getElementById("tableau-frame");
       iframe.src = iframe.src;
     }
   </script>
