@@ -28,18 +28,21 @@
     }
 
     .page {
-      display: block;
-      width: 100%;
-      min-width: 0;
+      display: grid;
+      grid-template-columns: 300px auto;
+      gap: 28px;
       padding: 10px;
+      align-items: start;
+      width: max-content;
+      min-width: 100%;
     }
 
     .side-panel {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding-top: 0;
-      width: 100%;
+      padding-top: 6px;
+      width: 300px;
     }
 
     .section {
@@ -58,15 +61,14 @@
       margin: 0 0 12px 0;
     }
 
-    /* MOBILE DEFAULT */
     .nav {
-      position: static;
-      width: 100%;
+      position: fixed;
+      left: 32px;
+      bottom: 180px;
+      width: 240px;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
+      flex-direction: column;
+      gap: 10px;
       z-index: 1000;
     }
 
@@ -82,11 +84,10 @@
       text-align: center;
       font-size: 16px;
       cursor: pointer;
+      width: 100%;
       font-family: Arial, sans-serif;
       appearance: none;
       -webkit-appearance: none;
-      flex: 1 1 calc(50% - 4px);
-      width: auto;
     }
 
     .nav a:hover,
@@ -103,8 +104,7 @@
     .viz-wrap {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
-      padding-left: 0;
-      margin-top: 12px;
+      padding-left: 90px;
     }
 
     .viz-inner {
@@ -120,50 +120,50 @@
       background: transparent;
     }
 
+    @media (max-width: 900px) {
+      .page {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        padding: 10px;
+      }
+
+      .side-panel {
+        width: 100%;
+        padding-top: 0;
+      }
+
+      .nav {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        z-index: auto;
+      }
+
+      .nav a,
+      .reset-btn {
+        flex: 1 1 calc(50% - 4px);
+        width: auto;
+      }
+
+      .viz-wrap {
+        overflow: auto;
+        padding-left: 0;
+      }
+    }
+
     @media (max-width: 560px) {
       .nav a,
       .reset-btn {
         flex: 1 1 100%;
-      }
-    }
-
-    /* DESKTOP ONLY */
-    @media (min-width: 901px) {
-      .page {
-        display: grid;
-        grid-template-columns: 300px auto;
-        gap: 28px;
-        padding: 10px;
-        align-items: start;
-        width: max-content;
-        min-width: 100%;
-      }
-
-      .side-panel {
-        padding-top: 6px;
-        width: 300px;
-      }
-
-      .nav {
-        position: fixed;
-        left: 32px;
-        bottom: 180px;
-        width: 240px;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: 10px;
-        margin-top: 0;
-      }
-
-      .nav a,
-      .reset-btn {
-        width: 100%;
-        flex: 0 0 auto;
-      }
-
-      .viz-wrap {
-        padding-left: 90px;
-        margin-top: 0;
       }
     }
   </style>
