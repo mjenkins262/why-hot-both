@@ -31,10 +31,7 @@
       display: grid;
       grid-template-columns: 300px auto;
       gap: 28px;
-
-      /* ✅ removed excessive bottom padding */
       padding: 10px;
-
       align-items: start;
       width: max-content;
       min-width: 100%;
@@ -64,14 +61,10 @@
       margin: 0 0 12px 0;
     }
 
-    /* ✅ THIS is the real fix */
     .nav {
       position: fixed;
-      left: 16px;
-
-      /* 👇 increased spacing from bottom */
-      bottom: 32px;
-
+      left: 32px;
+      bottom: 48px;
       width: 240px;
       display: flex;
       flex-direction: column;
@@ -111,9 +104,7 @@
     .viz-wrap {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
-
-      /* slight push right */
-      padding-left: 18px;
+      padding-left: 54px;
     }
 
     .viz-inner {
