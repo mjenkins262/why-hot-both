@@ -14,21 +14,29 @@
       overflow: hidden;
     }
 
-    /* MOBILE BLOCK MESSAGE */
     .mobile-block {
       display: none;
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 60px 24px;
       text-align: center;
-      padding: 60px 20px;
-      font-size: 18px;
-      line-height: 1.6;
+      background-color: #3d3936;
+      color: #f4efe8;
     }
 
     .mobile-block h2 {
-      font-size: 26px;
-      margin-bottom: 16px;
+      font-size: 28px;
+      margin: 0 0 16px 0;
     }
 
-    /* MAIN LAYOUT */
+    .mobile-block p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 14px auto;
+      color: #ddd4c8;
+    }
+
     .page {
       display: grid;
       grid-template-columns: 260px 1fr;
@@ -131,35 +139,30 @@
       display: block;
     }
 
-    /* MOBILE OVERRIDE */
     @media (max-width: 900px) {
       body {
         overflow: auto;
       }
 
       .page {
-        display: none;
+        display: none !important;
       }
 
       .mobile-block {
-        display: block;
+        display: block !important;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- MOBILE MESSAGE -->
-  <div class="mobile-block">
+  <div class="mobile-block" id="mobile-block">
     <h2>Better on Desktop</h2>
     <p>This one’s built for a bigger screen.</p>
     <p>Come back on a desktop or tablet to explore the full interactive view.</p>
   </div>
 
-  <!-- DESKTOP CONTENT -->
-  <div class="page">
-
+  <div class="page" id="desktop-page">
     <aside class="side-panel">
       <div class="section">
         <h2>Overview</h2>
@@ -167,19 +170,19 @@
         <p>
           This dashboard shows rates for Gold Gloves and Silver Sluggers relative to career length. Partial seasons are counted, even if a player only appeared in one game.
         </p>
-        
+
         <p>
           The quadrant chart shows each player’s balance of offense and defense. Over a full career, no player ends in the top-right quadrant, but some get there briefly or even with one team.
         </p>
-        
+
         <p>
           The leaderboard includes a 0-100 Rating which weighs both awards equally.
-        </p>        
-        
+        </p>
+
         <p>
           The line chart tracks how cumulative rates change each year. The peak for the population is at year 10.
         </p>
-        
+
         <p>
           Use the filters to find trends and oddities, or to see how a player's dot travels through the chart over their career.
         </p>
@@ -202,7 +205,6 @@
         </iframe>
       </div>
     </main>
-
   </div>
 
   <script>
@@ -210,7 +212,24 @@
       const iframe = document.getElementById("tableau-frame");
       iframe.src = iframe.src;
     }
-  </script>
 
+    function checkMobile() {
+      const mobileBlock = document.getElementById("mobile-block");
+      const desktopPage = document.getElementById("desktop-page");
+
+      if (window.innerWidth <= 900) {
+        mobileBlock.style.display = "block";
+        desktopPage.style.display = "none";
+        document.body.style.overflow = "auto";
+      } else {
+        mobileBlock.style.display = "none";
+        desktopPage.style.display = "grid";
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+  </script>
 </body>
 </html>
