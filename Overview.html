@@ -31,13 +31,10 @@
       display: grid;
       grid-template-columns: 260px auto;
       gap: 10px;
-      padding: 10px;
-
-      /* ✅ KEY FIXES */
-      align-items: stretch;
+      padding: 10px 10px 140px 10px;
+      align-items: start;
       width: max-content;
       min-width: 100%;
-      min-height: 100vh;
     }
 
     .side-panel {
@@ -45,15 +42,10 @@
       flex-direction: column;
       gap: 12px;
       padding-top: 6px;
-
-      /* ✅ KEY FIXES */
-      height: 100%;
-      min-height: 0;
     }
 
     .section {
-      /* ✅ KEY FIX */
-      flex: 1 1 auto;
+      flex: 0 0 auto;
     }
 
     .section h2 {
@@ -69,12 +61,14 @@
     }
 
     .nav {
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      width: 220px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-
-      /* Already correct */
-      margin-top: auto;
+      z-index: 1000;
     }
 
     .nav a,
@@ -114,10 +108,6 @@
     .viz-inner {
       width: 1520px;
       height: 1020px;
-      transform: scale(1);
-      transform-origin: top left;
-      margin-bottom: 400px;
-      
     }
 
     iframe {
@@ -133,19 +123,16 @@
         display: block;
         width: 100%;
         min-width: 0;
-        min-height: auto;
+        padding: 10px;
       }
 
       .side-panel {
         padding-top: 0;
-        height: auto;
-      }
-
-      .section {
-        flex: none;
       }
 
       .nav {
+        position: static;
+        width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 8px;
