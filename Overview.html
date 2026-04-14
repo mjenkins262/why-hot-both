@@ -14,6 +14,21 @@
       overflow: hidden;
     }
 
+    /* MOBILE BLOCK MESSAGE */
+    .mobile-block {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .mobile-block h2 {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    /* MAIN LAYOUT */
     .page {
       display: grid;
       grid-template-columns: 260px 1fr;
@@ -115,10 +130,34 @@
       height: 980px;
       display: block;
     }
+
+    /* MOBILE OVERRIDE */
+    @media (max-width: 900px) {
+      body {
+        overflow: auto;
+      }
+
+      .page {
+        display: none;
+      }
+
+      .mobile-block {
+        display: block;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- MOBILE MESSAGE -->
+  <div class="mobile-block">
+    <h2>Better on Desktop</h2>
+    <p>This one’s built for a bigger screen.</p>
+    <p>Come back on a desktop or tablet to explore the full interactive view.</p>
+  </div>
+
+  <!-- DESKTOP CONTENT -->
   <div class="page">
 
     <aside class="side-panel">
@@ -172,5 +211,6 @@
       iframe.src = iframe.src;
     }
   </script>
+
 </body>
 </html>
